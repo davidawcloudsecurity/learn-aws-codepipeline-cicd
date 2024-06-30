@@ -46,6 +46,10 @@ This project is based on [AWS CDK v2](https://docs.aws.amazon.com/cdk/api/v2/doc
 
 ### Installation
 
+```bash
+npm install aws-cdk-lib
+```
+
 #### MacOS or Linux
 
 If you are using MacOS, you can install the prerequisites by running the following command in your preferred terminal or also on Linux using [homebrew for Linux](https://docs.brew.sh/Homebrew-on-Linux):
