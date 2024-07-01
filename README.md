@@ -103,7 +103,8 @@ rm -rf ./.git
 You can connect by using a temporary security token or landing zone authentication. To confirm that you are using the correct account and AWS Region, run the following commands:
 
 ```bash
-AWS_REGION="eu-west-1"
+current_region=$(aws ec2 describe-availability-zones --output text --query 'AvailabilityZones[0].[RegionName]')
+AWS_REGION=$current_region
 ACCOUNT_NUMBER=$(aws sts get-caller-identity --query Account --output text)
 echo "${ACCOUNT_NUMBER}"
 ```
