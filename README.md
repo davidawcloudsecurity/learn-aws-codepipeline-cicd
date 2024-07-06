@@ -52,7 +52,7 @@ AWS_REGION=$(aws ec2 describe-availability-zones --output text --query 'Availabi
 ACCOUNT_NUMBER=$(aws sts get-caller-identity --query Account --output text); \
 npm run cdk bootstrap "aws://${ACCOUNT_NUMBER}/${AWS_REGION}"; \
 npm run cdk synth; \
-npm run cdk -- deploy CodePipeline --require-approval never; \
+npm run cdk -- deploy CodePipeline --require-approval never
 ```
 
 #### MacOS or Linux
