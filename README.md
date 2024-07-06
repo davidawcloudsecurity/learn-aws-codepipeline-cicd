@@ -47,7 +47,12 @@ This project is based on [AWS CDK v2](https://docs.aws.amazon.com/cdk/api/v2/doc
 ### Installation
 
 ```bash
-npm install aws-cdk-lib
+npm install aws-cdk-lib; \
+AWS_REGION=$(aws ec2 describe-availability-zones --output text --query 'AvailabilityZones[0].[RegionName]'); \
+ACCOUNT_NUMBER=$(aws sts get-caller-identity --query Account --output text); \
+npm run cdk bootstrap "aws://${ACCOUNT_NUMBER}/${AWS_REGION}"; \
+npm run cdk synth; \
+npm run cdk -- deploy CodePipeline --require-approval never; \
 ```
 
 #### MacOS or Linux
