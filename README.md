@@ -175,14 +175,12 @@ You can see the CodePipeline initial execution in [AWS CodePipeline console](htt
 You can set up remote origin as a `SampleRepository` and create required main branch by running the following command:
 
 ```bash
-RepoName=$(aws cloudformation describe-stacks --stack-name CodePipeline --query "Stacks[0].Outputs[?OutputKey=='RepositoryName'].OutputValue" --output text)
-echo "${RepoName}"
-
-git init
-git branch -m master main
-git remote add origin codecommit://${RepoName}
-git add .
-git commit -m "Initial commit"
+RepoName=$(aws cloudformation describe-stacks --stack-name CodePipeline --query "Stacks[0].Outputs[?OutputKey=='RepositoryName'].OutputValue" --output text); \
+git init; \
+git branch -m master main; \
+git remote add origin codecommit://${RepoName}; \
+git add .; \
+git commit -m "Initial commit"; \
 git push -u origin main
 ```
 
